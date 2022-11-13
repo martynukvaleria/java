@@ -61,7 +61,7 @@ public class Window extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
-                    StringBuffer string = new StringBuffer(button.getText());
+                    StringBuilder string = new StringBuilder(button.getText());
                     try {
                         string.deleteCharAt(string.length() - 1);
                     } catch (StringIndexOutOfBoundsException stringIndexOutOfBoundsException) {

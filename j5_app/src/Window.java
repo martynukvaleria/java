@@ -1,16 +1,14 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.MissingFormatArgumentException;
 
 public class Window extends JFrame {
     Series series;
 
     public Window(String string) {
 
-        super(string);
+//        super(string);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JFrame window = new JFrame("Series");
         window.setSize(600, 400);
@@ -35,18 +33,19 @@ public class Window extends JFrame {
         window.add(numOfElements);
 
         JRadioButton linear = new JRadioButton("Linear");
-        linear.setSelected(true);
+//        linear.setSelected(true);
         linear.setBounds(window.getSize().width / 2 + 80 - linear.getSize().width, window.getSize().height / 2 - 100, 200, 20);
         window.add(linear);
 
         JRadioButton exponential = new JRadioButton("Exponential");
-        exponential.setSelected(true);
+//        exponential.setSelected(true);
         exponential.setBounds(window.getSize().width / 2 + 80 - exponential.getSize().width, window.getSize().height / 2 - 50, 200, 20);
         window.add(exponential);
 
         ButtonGroup group = new ButtonGroup();
         group.add(linear);
         group.add(exponential);
+        linear.setSelected(true);
 
         JTextField seriesResult = new JTextField("Result of computing series");
         seriesResult.setBounds(window.getSize().width / 2 - 250 - seriesResult.getSize().width / 2, window.getSize().height / 2 + 50, 400, 30);

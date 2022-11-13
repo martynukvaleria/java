@@ -41,7 +41,7 @@ public class Tree<T extends Comparable<T>> {
     }
 
 
-    public Node findNodeByValue(T value) {
+    public void findNodeByValue(T value) {
         Node current = root;
         while (!(current.getValue().compareTo(value) == 0)) {
             if ((value).compareTo(current.getValue()) < 0) {
@@ -53,11 +53,10 @@ public class Tree<T extends Comparable<T>> {
             }
             if (current == null) {
                 System.out.println("Node not found");
-                return null;
+                return;
             }
         }
         System.out.println("Node found");
-        return current;
     }
 
     public void insertNode(T value) {

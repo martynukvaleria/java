@@ -7,32 +7,8 @@ import java.util.Scanner;
 
 public class Matrix {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        try {
-            File file = new File("/home/martynuk/IdeaProjects/j3/matrix.txt");
-
-            int[][] matrix = Matrix.createMatrix(file);
-
-            System.out.println("Inputted matrix : ");
-            Matrix.printMatrix(matrix);
-            ArrayList<ArrayList<Integer>> min = Matrix.minPosition(matrix);
-            ArrayList<ArrayList<Integer>> max = Matrix.maxPosition(matrix);
-            System.out.println("Positions of local max elements : ");
-            System.out.println(max);
-            System.out.println("Positions of local min elements : ");
-            System.out.println(min);
-
-        } catch (FileNotFoundException fileNotFoundException) {
-            System.out.println("File wasn't found");
-        } catch (InputMismatchException inputMismatchException) {
-            System.out.println("Not int element");
-        } catch (IllegalArgumentException illegalArgumentException) {
-            System.out.println(illegalArgumentException.getMessage());
-        }
-    }
-
     public static int[][] createMatrix(File file) throws NoSuchElementException, FileNotFoundException,
-            IllegalArgumentException, InputMismatchException {
+            IllegalArgumentException {
         Scanner input = new Scanner(file);
         int n = input.nextInt();
         int m = input.nextInt();
@@ -153,5 +129,29 @@ public class Matrix {
             }
         }
         return Result;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        try {
+            File file = new File("/home/martynuk/IdeaProjects/j3/matrix.txt");
+
+            int[][] matrix = Matrix.createMatrix(file);
+
+            System.out.println("Inputted matrix : ");
+            Matrix.printMatrix(matrix);
+            ArrayList<ArrayList<Integer>> min = Matrix.minPosition(matrix);
+            ArrayList<ArrayList<Integer>> max = Matrix.maxPosition(matrix);
+            System.out.println("Positions of local max elements : ");
+            System.out.println(max);
+            System.out.println("Positions of local min elements : ");
+            System.out.println(min);
+
+        } catch (FileNotFoundException fileNotFoundException) {
+            System.out.println("File wasn't found");
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Not int element");
+        } catch (IllegalArgumentException illegalArgumentException) {
+            System.out.println(illegalArgumentException.getMessage());
+        }
     }
 }
