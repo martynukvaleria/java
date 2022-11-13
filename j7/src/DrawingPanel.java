@@ -41,8 +41,6 @@ public class DrawingPanel extends JPanel {
     public void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
         graphics.drawImage(image,0,0,this);
-        setBackground(Color.white);
-        setForeground(Color.white);
     }
 
     public void setColor(Color color){
