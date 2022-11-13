@@ -28,16 +28,17 @@ public class DrawingFrame extends JFrame {
         JButton buttonOpen = new JButton("Open");
         buttonOpen.addActionListener((e -> {
             JFileChooser fileChooser = new JFileChooser();
-            fileChooser.showOpenDialog(null);
-            try {
-                drawingPanel.image = ImageIO.read(fileChooser.getSelectedFile());
-                setPreferredSize(new Dimension(drawingPanel.image.getWidth(), drawingPanel.image.getHeight()));
-                drawingPanel.graphics = drawingPanel.image.createGraphics();
-                drawingPanel.setColor(drawingPanel.color);
-                repaint();
+            if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                try {
+                    drawingPanel.image = ImageIO.read(fileChooser.getSelectedFile());
+                    setPreferredSize(new Dimension(drawingPanel.image.getWidth(), drawingPanel.image.getHeight()));
+                    drawingPanel.graphics = drawingPanel.image.createGraphics();
+                    drawingPanel.setColor(drawingPanel.color);
+                    repaint();
 
-            } catch (IOException | IllegalArgumentException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                } catch (IOException | IllegalArgumentException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }));
         JButton buttonSave = new JButton("Save");
