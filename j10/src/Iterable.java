@@ -1,4 +1,3 @@
-
 public interface Iterable<T> {
-    MyIterator<T> createIterator();
+    Iterator<T> createIterator();
 }
